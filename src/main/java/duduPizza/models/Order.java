@@ -7,6 +7,16 @@ public class Order {
     private List<Pizza> pizzas;
     private double totalPrice;
 
+    public Order(int orderId, String customerName, List<Pizza> pizzas) {
+        this.orderId = orderId;
+        this.customerName = customerName;
+        this.pizzas = pizzas;
+    }
+
+    public double calculateTotalPrice() {
+        return pizzas.stream().mapToDouble(Pizza::getCost).sum();
+    }
+
     public int getOrderId() {
         return orderId;
     }
