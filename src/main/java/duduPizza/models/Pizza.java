@@ -1,9 +1,9 @@
 package duduPizza.models;
 
 public class Pizza {
-    public String name;
-    public String size;
-    public double price;
+    private String name;
+    private String size;
+    private double price;
 
     public String getName() {
         return name;

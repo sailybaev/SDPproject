@@ -2,10 +2,10 @@ package duduPizza.models;
 import java.util.List;
 
 public class Order {
-    public int orderId;
-    public String customerName;
-    public List<Pizza> pizzas;
-    public double totalPrice;
+    private int orderId;
+    private String customerName;
+    private List<Pizza> pizzas;
+    private double totalPrice;
 
     public int getOrderId() {
         return orderId;
