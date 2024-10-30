@@ -1,7 +1,5 @@
 package duduPizza.models;
 
-import duduPizza.models.Pizza;
-
 public class PestoPizza extends Pizza {
     public PestoPizza(){
         description = "Pesto Pizza";
