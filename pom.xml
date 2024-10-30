@@ -6,12 +6,17 @@
     <groupId>com.yourpackage</groupId>
     <artifactId>PizzaOrderingApp</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
+    </properties>
 
     <dependencies>
         <!-- Jackson for JSON parsing -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>2.13.3</version> <!-- Add the appropriate version here -->
         </dependency>
 
         <!-- JUnit for testing -->
