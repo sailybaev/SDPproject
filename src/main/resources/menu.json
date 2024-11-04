@@ -1,0 +1,22 @@
+[
+  {
+    "type": "margherita",
+    "description": "Margherita Pizza",
+    "cost": 5.00
+  },
+  {
+    "type": "pepperoni",
+    "description": "Pepperoni Pizza",
+    "cost": 7.00
+  },
+  {
+    "type": "pesto",
+    "description": "Pesto Pizza",
+    "cost": 6.50
+  },
+  {
+    "type": "hawaiian",
+    "description": "Hawaiian Pizza",
+    "cost": 8.00
+  }
+]
