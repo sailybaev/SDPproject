@@ -29,35 +29,26 @@ public class UI {
             scanner.nextLine();
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
 
-            if(choice == 1) {
+            if (choice == 1) {
                 displayCart();
-            }
-
-            if (choice == 2) {
+            } else if (choice == 2) {
                 addPizzaToCart();
-            }
-
-            if (choice == 3){
+            } else if (choice == 3) {
                 placeOrderCart();
-
-            }
-
-            if(choice==4){
+            } else if (choice == 4) {
                 cancelOrderByName();
-            }
-
-            else {
+            } else if (choice == 5) {
                 System.exit(0);
+            } else {
+                System.out.println("Invalid choice. Please try again.");
             }
-
-
         }
     }
 
-    public static void cancelOrderByName(){
+    public static void cancelOrderByName() {
         System.out.println("Enter your name: ");
-        String custemerName = scanner.nextLine();
-        facade.cancelOrder(custemerName.hashCode());
+        String customerName = scanner.nextLine();
+        facade.cancelOrder(customerName.hashCode());
         System.out.println("Order canceled");
         System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
     }
@@ -67,24 +58,23 @@ public class UI {
         String customerName = scanner.nextLine();
         System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
 
-        Order order = new Order(customerName.hashCode() ,customerName, pizzas);
+        Order order = new Order(customerName.hashCode(), customerName, pizzas);
         facade.placeOrder(order);
         displayCart(order);
 
         System.out.println("Confirm the order (y/n)");
         String ans = scanner.nextLine();
-        if (ans.equals("y")){
+        if (ans.equals("y")) {
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
             System.out.println("Your order has been confirmed");
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
-        }
-        else{
+        } else {
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
             System.out.println("Try again");
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
         }
-
     }
+
     public static void addPizzaToCart() {
         System.out.println("Choose and enter pizza type: ");
         System.out.println("1. Hawaiian pizza");
@@ -93,30 +83,30 @@ public class UI {
         System.out.println("4. Pesto pizza");
         String pizzaType = scanner.nextLine();
         System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
-        if(pizzaType.equals("1")){
+        if (pizzaType.equals("1")) {
             pizzaType = "Hawaiian";
-        }else if(pizzaType.equals("2")){
+        } else if (pizzaType.equals("2")) {
             pizzaType = "Margherita";
-        }else if(pizzaType.equals("3")){
+        } else if (pizzaType.equals("3")) {
             pizzaType = "Pepperoni";
-        }else if(pizzaType.equals("4")){
+        } else if (pizzaType.equals("4")) {
             pizzaType = "Pesto";
-        }else {
+        } else {
             System.out.println("New pizza is coming soon...");
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
+            return;
         }
         Pizza orderPizza = facade.createPizza(pizzaType);
         System.out.println("Enter topping type(cheese, mushroom or none): ");
         String toppingType = scanner.nextLine();
         System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
-        if(Objects.equals(toppingType, "cheese")){
+        if (Objects.equals(toppingType, "cheese")) {
             Pizza pizzaWithCheese = new CheeseTopping(orderPizza);
             orderPizza = pizzaWithCheese;
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
             System.out.println("Topping has been added");
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
             pizzas.add(orderPizza);
-
         } else if (Objects.equals(toppingType, "mushroom")) {
             Pizza pizzaWithMushroom = new MushroomTopping(orderPizza);
             orderPizza = pizzaWithMushroom;
@@ -124,27 +114,25 @@ public class UI {
             System.out.println("Topping has been added");
             System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
             pizzas.add(orderPizza);
-        }
-
-        else {
+        } else {
             pizzas.add(orderPizza);
         }
     }
 
     public static void displayCart() {
         System.out.println("===Your order===");
-        for (int i =0;i<pizzas.toArray().length;i++) {
+        for (int i = 0; i < pizzas.size(); i++) {
             System.out.println(pizzas.get(i));
         }
-        System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
-    }
-    public static void displayCart(Order order) {
-        System.out.println("===Your order===");
-        for (int i =0;i<pizzas.toArray().length;i++) {
-            System.out.println(pizzas.get(i));
-        }
-        System.out.println("Total: "+order.getTotalPrice());
         System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
     }
 
+    public static void displayCart(Order order) {
+        System.out.println("===Your order===");
+        for (int i = 0; i < pizzas.size(); i++) {
+            System.out.println(pizzas.get(i));
+        }
+        System.out.println("Total: " + order.getTotalPrice());
+        System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
+    }
 }
