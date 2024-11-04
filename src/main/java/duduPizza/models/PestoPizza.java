@@ -8,4 +8,10 @@ public class PestoPizza extends Pizza {
         public double getCost(){
         return 10.00;
     }
+
+    @Override
+    public String toString() {
+        return "Pesto Pizza " +
+                getCost()+"";
+    }
 }
