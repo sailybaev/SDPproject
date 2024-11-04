@@ -1,16 +1,16 @@
 package duduPizza.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import duduPizza.models.Order;
+import duduPizza.OrderTest;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderService {
-    private List<Order> orders = new ArrayList<>();
+public class OrderServiceTest {
+    private List<OrderTest> orders = new ArrayList<>();
 
-    public void placeOrder(Order order) {
+    public void placeOrder(OrderTest order) {
         orders.add(order);
         saveOrders();
     }
@@ -18,10 +18,6 @@ public class OrderService {
     public void cancelOrder(int orderId) {
         orders.removeIf(order -> order.getOrderId() == orderId);
         saveOrders();
-    }
-
-    public List<Order> getOrders() {
-        return orders;
     }
 
     private void saveOrders() {

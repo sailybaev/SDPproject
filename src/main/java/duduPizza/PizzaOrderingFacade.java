@@ -30,6 +30,10 @@ public class PizzaOrderingFacade {
         orderService.placeOrder(order);
     }
 
+    public List<Order> getOrders() {
+        return orderService.getOrders();
+    }
+
     public void cancelOrder(int orderId) {
         orderService.cancelOrder(orderId);
     }
