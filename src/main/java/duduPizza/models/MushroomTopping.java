@@ -7,11 +7,16 @@ public class MushroomTopping extends ToppingDecorator {
 
     @Override
     public String getDescription() {
-        return pizza.getDescription() + ", Mushrooms";
+        return pizza.getDescription() + " with Mushrooms ";
     }
 
     @Override
     public double getCost() {
         return pizza.getCost() + 2.00;
+    }
+    @Override
+    public String toString() {
+        return getDescription() +
+                getCost()+"";
     }
 }

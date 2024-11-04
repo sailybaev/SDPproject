@@ -13,6 +13,8 @@ public class Order {
         this.pizzas = pizzas;
     }
 
+    public Order(){}
+
     public double calculateTotalPrice() {
         return pizzas.stream().mapToDouble(Pizza::getCost).sum();
     }
@@ -42,7 +44,11 @@ public class Order {
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        int cal = 0;
+        for(int i = 0;i<pizzas.toArray().length;i++) {
+            cal+=pizzas.get(i).getCost();
+        }
+        return cal;
     }
 
     public void setTotalPrice(double totalPrice) {

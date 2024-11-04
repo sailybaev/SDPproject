@@ -9,4 +9,9 @@ public class PepperoniPizza extends Pizza {
     public double getCost() {
         return 7.00;
     }
+    @Override
+    public String toString() {
+        return "Pepperoni Pizza " +
+                getCost()+"";
+    }
 }
