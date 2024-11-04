@@ -20,6 +20,10 @@ public class OrderService {
         saveOrders();
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
     private void saveOrders() {
         try {
             ObjectMapper mapper = new ObjectMapper();
