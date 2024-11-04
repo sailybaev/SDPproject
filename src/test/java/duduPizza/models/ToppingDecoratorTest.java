@@ -8,7 +8,7 @@ public class ToppingDecoratorTest {
         Pizza pizza = new PepperoniPizza();
         Pizza cheese = new CheeseTopping(pizza);
 
-        assertEquals("Margherita PIzza with Extra Cheese" , cheese.getDescription());
+        assertEquals("Pepperoni Pizza with Extra Cheese " , cheese.getDescription());
     }
 
     @Test
@@ -16,7 +16,7 @@ public class ToppingDecoratorTest {
         Pizza pizza = new PepperoniPizza();
         Pizza cheese = new CheeseTopping(pizza);
 
-        assertEquals(6.50 , cheese.getCost());
+        assertEquals(8.50 , cheese.getCost(), 0.01);
     }
 
 

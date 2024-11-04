@@ -13,6 +13,6 @@ public class PestoPizzaTest {
     @Test
     public void testGetCost(){
         Pizza pizza = new PestoPizza();
-        assertEquals(10.0, pizza.getCost());
+        assertEquals(10.0, pizza.getCost(), 0.01);
     }
 }

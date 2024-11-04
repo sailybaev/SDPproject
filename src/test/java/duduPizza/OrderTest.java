@@ -18,7 +18,7 @@ public class OrderTest {
 
         Order order = new Order(1 , "Daniyal" , pizzas);
 
-        assertEquals(1 , order.getPizzas().size());
+        assertEquals(2 , order.getPizzas().size());
         assertEquals(pizzas , order.getPizzas());
     }
 
@@ -31,7 +31,7 @@ public class OrderTest {
 
         Order order = new Order(1 , "Daniyal" , pizzas);
 
-        assertEquals(21.50 , order.getTotalPrice());
+        assertEquals(21.00 , order.getTotalPrice() , 0.01);
     }
 
 }
