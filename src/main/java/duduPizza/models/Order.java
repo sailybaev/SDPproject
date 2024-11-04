@@ -43,6 +43,10 @@ public class Order {
         this.pizzas = pizzas;
     }
 
+    public void addPizza(Pizza pizza){
+        pizzas.add(pizza);
+    }
+
     public double getTotalPrice() {
         int cal = 0;
         for(int i = 0;i<pizzas.toArray().length;i++) {
